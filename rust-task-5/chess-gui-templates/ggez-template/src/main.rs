@@ -5,7 +5,7 @@
  * Last updated: 2022-09-28
  */
 
-use chess_template::{Colour, Game, PieceType};
+use jblomlof_chess::{Colour, Game, PieceType};
 
 use ggez::{conf, event, graphics, Context, ContextBuilder, GameError, GameResult};
 use std::{collections::HashMap, env, path};
@@ -224,6 +224,7 @@ pub fn main() -> GameResult {
     let resource_dir = path::PathBuf::from("./resources");
 
     let context_builder = ContextBuilder::new("schack", "viola")
+        .modules(conf::ModuleConf::default().audio(false))
         .add_resource_path(resource_dir) // Import image files to GGEZ
         .window_setup(
             conf::WindowSetup::default()
